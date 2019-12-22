@@ -5,28 +5,43 @@
     "author": "Vladimir Fojtik <fojtik.v@gmail.com>",
     "private": true,
     "scripts": {
-        "dev": "nuxt",
-        "build": "nuxt build",
-        "start": "nuxt start",
-        "generate": "nuxt generate",
-        "test": "jest"
+        "dev": "nuxt-ts",
+        "build": "nuxt-ts build",
+        "generate": "nuxt-ts generate",
+        "start": "nuxt-ts start",
+        "test": "jest",
+        "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
+        "lintfix": "eslint --fix --ext .ts,.js,.vue --ignore-path .gitignore ."
     },
     "dependencies": {
+        "@nuxt/typescript-runtime": "^0.3.3",
         "@nuxtjs/axios": "^5.9.0",
         "@nuxtjs/pwa": "^3.0.0-beta.19",
         "ant-design-vue": "^1.4.10",
         "nuxt": "^2.11.0",
-        "stylelint-scss": "^3.13.0"
+        "stylelint-scss": "^3.13.0",
+        "vue-property-decorator": "^8.3.0"
     },
     "devDependencies": {
+        "@nuxt/typescript-build": "^0.5.2",
+        "@nuxtjs/eslint-config-typescript": "^1.0.0",
         "@nuxtjs/stylelint-module": "^3.1.1",
+        "@types/node": "^12.12.21",
         "@vue/test-utils": "^1.0.0-beta.30",
         "babel-jest": "^24.9.0",
+        "eslint": "^6.8.0",
         "eslint-config-prettier": "^6.7.0",
+        "eslint-loader": "^3.0.3",
         "eslint-plugin-prettier": "^3.1.2",
+        "eslint-plugin-vue": "^6.0.1",
         "jest": "^24.9.0",
         "prettier": "^1.19.1",
         "stylelint": "^12.0.0",
-        "vue-jest": "^3.0.5"
+        "ts-loader": "^6.2.1",
+        "tslint": "^5.20.1",
+        "tslint-config-airbnb": "^5.11.2",
+        "typescript": "^3.7.4",
+        "vue-jest": "^3.0.5",
+        "vue-loader": "^15.8.3"
     }
 }
