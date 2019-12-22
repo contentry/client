@@ -1,4 +1,9 @@
 module.exports = {
-    // add your custom config here
-    // https://stylelint.io/user-guide/configuration
+    "plugins": [
+        "stylelint-scss"
+    ],
+    "rules": {
+        "scss/dollar-variable-pattern": "^foo",
+        "scss/selector-no-redundant-nesting-selector": true
+    }
 }

@@ -15,7 +15,8 @@
         "@nuxtjs/axios": "^5.9.0",
         "@nuxtjs/pwa": "^3.0.0-beta.19",
         "ant-design-vue": "^1.4.10",
-        "nuxt": "^2.11.0"
+        "nuxt": "^2.11.0",
+        "stylelint-scss": "^3.13.0"
     },
     "devDependencies": {
         "@nuxtjs/stylelint-module": "^3.1.1",
