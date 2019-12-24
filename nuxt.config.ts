@@ -5,12 +5,16 @@ const config: Configuration = {
      ** Nuxt.js dev-modules
      */
     buildModules: ['@nuxt/typescript-build', '@nuxtjs/stylelint-module'],
+    typescript: {
+        typeCheck: true,
+        ignoreNotFoundWarnings: true
+    },
     mode: 'universal',
     /*
      ** Headers of the page
      */
     head: {
-        title: process.env.npm_package_name || '',
+        titleTemplate: '%s | Contentry',
         meta: [
             { charset: 'utf-8' },
             {
@@ -43,7 +47,8 @@ const config: Configuration = {
     modules: [
         // Doc: https://axios.nuxtjs.org/usage
         '@nuxtjs/axios',
-        '@nuxtjs/pwa'
+        '@nuxtjs/pwa',
+        '@nuxtjs/style-resources'
     ],
     /*
      ** Axios module configuration
@@ -57,6 +62,12 @@ const config: Configuration = {
         /*
          ** You can extend webpack config here
          */
+    },
+    /*
+     ** Style resources
+     */
+    styleResources: {
+        scss: './assets/css/variables.scss'
     }
 };
 

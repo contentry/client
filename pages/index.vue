@@ -35,12 +35,15 @@ import Logo from '~/components/Logo.vue';
 @Component({
     components: {
         Logo
+    },
+    head: {
+        title: 'Home'
     }
 })
 export default class Homepage extends Vue {}
 </script>
 
-<style>
+<style lang="scss">
 .container {
     margin: 0 auto;
     min-height: 100vh;
@@ -57,7 +60,7 @@ export default class Homepage extends Vue {}
     display: block;
     font-weight: 300;
     font-size: 100px;
-    color: #35495e;
+    color: $base-color;
     letter-spacing: 1px;
 }
 
