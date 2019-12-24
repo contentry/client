@@ -1,31 +1,12 @@
-<template>
-    <div class="container">
-        <div>
-            <logo />
-            <h1 class="title">
-                client
-            </h1>
-            <h2 class="subtitle">
-                Client for Contentry App
-            </h2>
-            <div class="links">
-                <a
-                    href="https://nuxtjs.org/"
-                    target="_blank"
-                    class="button--green"
-                >
-                    Documentation
-                </a>
-                <a
-                    href="https://github.com/nuxt/nuxt.js"
-                    target="_blank"
-                    class="button--grey"
-                >
-                    GitHub
-                </a>
-            </div>
-        </div>
-    </div>
+<template lang="pug">
+    div.container
+        div
+            logo
+            h1.title client
+            h2.subtitle Client for Contentry app
+            div.links
+                a(href="https://nuxtjs.org/", target="_blank", class="button--green") Documentation
+                a(href="https://github.com/nuxt/nuxt.js", target="_blank", class="button--grey") GitHub
 </template>
 
 <script lang="ts">
