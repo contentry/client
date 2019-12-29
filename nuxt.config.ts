@@ -1,6 +1,11 @@
 import { Configuration } from '@nuxt/types';
+const config = require('config');
 
-const config: Configuration = {
+const client: { host: string; port: number } = config.get('client');
+const server: { host: string; port: number } = config.get('server');
+const url = `http://${server.host}:${server.port}/graphql`;
+
+const nuxtConfig: Configuration = {
     /*
      ** Nuxt.js dev-modules
      */
@@ -10,6 +15,13 @@ const config: Configuration = {
         ignoreNotFoundWarnings: true
     },
     mode: 'universal',
+    /*
+     ** Host and port config
+     */
+    server: {
+        port: client.port,
+        host: client.host
+    },
     /*
      ** Headers of the page
      */
@@ -45,16 +57,39 @@ const config: Configuration = {
      ** Nuxt.js modules
      */
     modules: [
-        // Doc: https://axios.nuxtjs.org/usage
-        '@nuxtjs/axios',
         '@nuxtjs/pwa',
-        '@nuxtjs/style-resources'
+        '@nuxtjs/style-resources',
+        '@nuxtjs/auth',
+        '@nuxtjs/apollo'
     ],
     /*
-     ** Axios module configuration
-     ** See https://axios.nuxtjs.org/options
+     ** Apollo options
      */
-    axios: {},
+    apollo: {
+        defaultOptions: {
+            $query: {
+                loadingKey: 'loading'
+            }
+        },
+        clientConfigs: {
+            default: {
+                httpEndpoint: url
+            }
+        }
+    },
+    /*
+     ** Auth configuration
+     */
+    auth: {
+        strategies: {
+            localGraphQL: {
+                _scheme: '~/apollo/scheme'
+            }
+        },
+        watchLoggedIn: true,
+        rewriteRedirects: false,
+        resetOnError: true
+    },
     /*
      ** Build configuration
      */
@@ -68,7 +103,13 @@ const config: Configuration = {
      */
     styleResources: {
         scss: './assets/css/variables.scss'
+    },
+    /*
+     ** Router configuration
+     */
+    router: {
+        middleware: ['auth']
     }
 };
 
-export default config;
+export default nuxtConfig;

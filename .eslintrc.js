@@ -21,6 +21,7 @@ module.exports = {
         'prettier/prettier': ['error', { 'semi': true }],
         "indent": ["error", 4],
         "vue/html-indent": ["error", 4],
-        "vue/script-indent": ["error", 4]
+        "vue/script-indent": ["error", 4],
+        "require-await": 'off'
     }
 };
